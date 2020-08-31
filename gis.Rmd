@@ -1,0 +1,431 @@
+---
+title: "GIS e análise espacial para ciências sociais"
+author: "Renata Lúcia Magalhães de Oliveira"
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 2
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Estrutura da disciplina
+### Objetivos de aprendizagem
+
+ <aside>
+**Conteúdo da página**
+ <a href="#estrutura-da-disciplina">Estrutura da disciplina</a>
+ <a href="#conteúdo-semanal">Conteúdo semanal</a>    
+ <a href="#top">Início</a>
+</aside>
+
+:::justa
+Ao final deste curso, os alunos devem estar aptos a:
+
+- discutir problemas urbanos, tais como acessibilidade, mobilidade, estrutura espacial de funções urbanas e seu impacto na promoção de cidades equitativas e de qualidade de vida para a população, considerando tanto a organização social cotidiana como no momento de exceção promovido pelo COVID-19;     
+
+- utilizar Sistemas de Informações Geográficas (QGIS) e linguagem de programação do R e suas principais bibliotecas do R destinadas à manipulação e tratamento de dados espaciais;     
+
+- implementar ferramentas de análise espacial.
+:::
+----
+   
+### Teoria
+:::justa
+- Pensamento espacial       
+- Introdução à cartografia      
+  - forma e dimensões terrestres      
+  - representações: sistemas geodésicos, modelos e datum      
+  - sistemas de coordenadas geográficas e projetadas      
+- Sistemas de Informações Geográficas (_Geographic Information Systems_)      
+- Análise exploratória de dados   
+- Unidades espaciais e representação de fenômenos espaciais      
+- Dados vetoriais e matriciais   
+- Análise espacial   
+- Modelagem estatística espacial   
+- LISA - Local Indicators of Spatial Autcorrelation   
+- Multicriteria spatial anaysis   
+- Distância   
+- Webscrapping  
+:::
+
+### Recursos computacionais necessários
+Todos os sistemas e plataformas utilizados nesta disciplina caracterizam-se como FOSS (Free and Open Source Software). 
+
+Utilizaremos o [QGIS](https://www.qgis.org/pt_BR/site/about/index.html) como Sistema de Informações Geográficas e o [R](https://www.r-project.org/) como plataforma para estatística computacional. O [RStudio](https://rstudio.com/) será considerado como ambiente de implementação do R. Para análise espacial consideraremos também o software [GeoDa](https://geodacenter.github.io/documentation.html).
+
+<hr>
+
+# Conteúdo semanal
+ <aside>
+**Conteúdo da página**
+ <a href="#estrutura-da-disciplina">Estrutura da disciplina</a>
+ <a href="#conteúdo-semanal">Conteúdo semanal</a>    
+ <a href="#top">Início</a>
+</aside>
+
+## Semana 1: 4a revolução industrial e competências para o século XXI
+
+### Discussão
+Como você se enxerga no mercado de trabalho do século XXI?
+
+### Material de suporte
+[Texto para discussão](https://drive.google.com/file/d/16lA5QkMoqsfIBNk-_78Ye1VEJ8eVAygi/view?usp=sharing)   
+
+[Apresentação - Contextualização](https://drive.google.com/file/d/1mH_nmpQCyZ7VhRMy11Mi1ZxvUgr96ytX/view?usp=sharing)   
+
+### Atividade da semana
+Instruções:
+
+1. Assista os vídeos.
+
+2. Faça uma revisão dos conteúdos desta unidade.
+
+3. Realize o teste de [múltiplas inteligências](http://www.idaam.edu.br/ambiente/multiplas-inteligencias/teste-multiplas-inteligencias.html).
+
+4. Faça uma reflexão sobre as demandas do mercado de trabalho e o quanto você pode contribuir com sua formação. Responda uma das questões a seguir (200-500 palavras, 2-4 parágrafos).
+
+- O que você pode fazer para contribuir para sua formação no contexto do século XXI?   
+- Quais são suas inteligências mais predominantes e como elas se relacionam com as competências para o século XXI?   
+
+5. Poste sua resposta no [Fórum - Semana 1](https://canvas.instructure.com/courses/2212138/discussion_topics/9485006?module_item_id=34321964)
+
+### Vídeos
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ngf8Jq2nuGc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2j00U6lUC-c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RC--p1aCzWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bKcBRTCXGEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bj9ciijbMj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Semana 2: Introdução ao pensamento espacial, à cartografia e aos GIS
+
+### Discussão
+#### Palavras-chave de conceitos que fundamentam a disciplina
+:::justa
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/wordcloud.png')
+```
+:::
+
+#### Pensamento espacial  
+<aside>
+> "todas as coisas são parecidas mas coisas mais próximas se parecem mais que coisas mais distantes”. Waldo Tobler
+</aside>
+
+- Encontrar significado em formas, tamanho, orientação, localização, direção ou trajetória de objetos, processos e fenômenos
+
+- Encontrar significado na localização relativa de múltiplos objetos, processos e fenômenos.
+
+
+  - O que diferencia dados espaciais e não espaciais?    
+  - O que existe em uma determinada localização?   
+  - Onde posso encontrar um determinado objeto?   
+  - O que mudou ao longo do tempo?   
+  - Qual o melhor caminho?   
+  - Como os objetos são distribuídos no espaço?   
+  - Como as condições serão alteradas no futuro? 
+
+
+#### Representações: sistemas geodésicos, modelos e datum    
+
+##### Geóide   
+:::justa
+Forma irregular, com ondulações e depressões
+
+```{r echo=FALSE, out.width='50%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/gravidade_terra.png')
+```
+   
+É preciso buscar um modelo mais simples para representar a Terra.   
+
+**Geóide**: Superfície delimitada pelo nível médio dos mares supostamente prolongado por sob os continentes   
+**Elipsóide**: Modelo matemático que define a superfície da Terra.   
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/geoide.png')
+```
+:::
+
+##### Elipsóide de revolução    
+:::justa
+Ao girar em torno de seu eixo menor, uma ELIPSE forma um volume achatado nos pólos    
+
+É a figura matemática que mais se aproxima da forma do geóide. Parâmetros são simples 
+
+Parâmetros
+a = semi-eixo maior; b = semi-eixo menor; f = achatamento = (a-b)/a
+
+Em geral, cada país ou grupo de países adotou um elipsóide de referência para os trabalhos geodésicos e topográficos que mais se aproxima do geóide na região considerada.
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/elipsoi_1.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/elipsoide_2.png')
+```
+:::
+
+
+#### Sistemas geodésicos
+:::justa 
+Permitem estabelecer uma relação entre um ponto determinado do terreno e um elipsóide de referência.       
+Elegem um elipsóide de revolução que melhor se ajuste às características locais do geóide.    
+
+A posição deste elipsóide em relação à Terra, bem como sua forma e tamanho, constituem um conjunto de parâmetros que usualmente são denominados Datum Geodésico.    
+:::
+
+##### Datum
+:::justa
+Marco geodésico, horizontal ou vertical, usado como ponto de origem do sistema geodésico (referência).
+
+- Datum vertical ou altimétrico: referência para altitude (marco "zero" - 0 m)
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/datum.png')
+```
+
+- Datum horizontal ou planimétrico: referência para coordenadas planimétricas
+
+```{r echo=FALSE, out.width='25%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/geoide_geocentrico.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/geoide_topocentrico.png')
+```
+
+SIRGAS 2000 - Sistema de Referência Geocêntrico para as Américas   
+Datum Global, Geocêntrico   
+
+SAD-69 - Sistema Geodésico Sul-Americano 1969     
+Datum Local, Topocêntrico 
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/YW8lwn8L6rA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:::
+
+#### Sistemas de referências
+:::justa 
+Como estabelecer localizações na Superfície Terrestre?   
+
+- Adotar um modelo matemático da Terra: Datum Geodésico (SAD-69, SIRGAS 2000…)   
+
+- Adotar um sistema capaz de localizar qualquer lugar da Terra: Sistema de Coordenadas   
+:::
+
+##### Sistemas de coordenadas geográficas
+
+:::justa  
+Sistemas de coordenadas geográficas são necessários para a expressão da posição de pontos sobre uma superfície.   
+
+Considerando que esta superfície seja curvilínea (elipsóide ou esfera), cada ponto da superfície terrestre é localizado na interseção de um meridiano e paralelo e seu posicionamento é dado por meio de **valores angulares** que correspondem a sua **latitude** e **longitude**.  
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/graus.png')
+```
+
+**Meridianos**   
+- Num modelo esférico, os meridianos são semi-círculos gerados a partir da interseção de planos verticais que contém o eixo de rotação terrestre com a superfície da Terra. 
+
+- Um semicírculo define um meridiano que com seu antimeridiano formam um círculo máximo.  
+
+- O meridiano de origem, é denominado Meridiano de Greenwich, com o seu antimeridiano, divide a Terra em dois hemisférios: leste e oeste.  
+
+- A leste deste meridiano, os valores da coordenadas são crescentes, variando entre 0° e +180°.   
+
+- A oeste, as medidas são decrescentes, variando entre 0° e -180°.  
+
+**Paralelos**   
+- Paralelos são círculos cujo plano é perpendicular ao eixo dos pólos. 
+
+- O Equador é o paralelo que divide a Terra em dois hemisférios (Norte e Sul) e é considerado o paralelo de origem (0°).   
+
+- Partindo-se do Equador em direção aos pólos tem-se vários planos paralelos ao Equador, cujos tamanhos vão diminuindo até que se reduzam a pontos nos pólos Norte (+90°) e Sul (-90°).     
+
+**Latitude e Longitude**    
+- Longitude (letra grega lambda λ): É a distância angular entre o lugar e o meridiano de origem, contada sobre um plano paralelo ao Equador.   
+- Latitude (letra grega phi ϕ): É a distância angular entre o lugar e o plano do Equador, contada sobre o plano do meridiano que passa no lugar. 
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/lat_long.png')
+```
+:::
+
+##### Sistemas de coordenadas projetadas - projeções cartográficas   
+:::justa
+Para confeccionar um mapa, precisamos de um método segundo o qual a cada ponto da superfície terrestre corresponda um ponto do mapa e vice versa: **sistema de projeções**.        
+
+A projeção cartográfica **transforma** uma posição sobre a superfície terrestre, identificada por latitude e longitude em uma posição em coordenadas cartesianas/planas (x,y).  
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/projecao.png')
+```
+
+Sistemas de coordenadas planas devem ser utilizados para representação de pequenas porções da superfície terrestre (mapas de grande escala). Coordenadas planas não são utilizadas para mapas de pequenas escalas pelo seu potencial de distorção.   
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/laranja1.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/laranja 2.png')
+```
+
+Representar uma superfície curva (a Terra) em um plano sempre envolve deformações. **Não existe projeção ideal**.     
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/erro_proj1.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/proj.jpg')
+```
+
+As projeções podem ser:     
+- Projeção conforme (conformidade): Mantêm ângulos (forma), mas não os tamanhos   
+- Projeção equidistante: Mantêm distância, mas deforma áreas e ângulos   
+- Projeção equivalente: Mantêm áreas, mas distorce as formas   
+- Projeções afiláticas: Não conserva nenhuma das propriedades. Busca reduzir distorções de maneira geral.   
+
+**Classificação das projeções geográficas**    
+Quanto à Superfície de Projeção:   
+- Plana ou Azimutal   
+- Cilíndrica     
+- Cônica     
+- Polissuperficiais (poliédrica, policilíndrica, policônica)   
+
+Quanto ao Tipo de Contato:   
+- Tangente   
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/planotangente.png')
+```
+
+- Secante
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/planosecante.png')
+```
+
+:::
+##### UTM    
+O Sistema de projeção Universal Transversa de Mercato apresenta uma superfície de Projeção com 60 cilindros transversos, cada um com uma amplitude de 6 graus em longitude = 60 fusos.    
+
+Cada fuso possui um meridiano central, com 3 graus para cada lado. Os 60 fusos são enumerados a partir do anti-meridiano de Greenwich.   
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/mercartor.png')
+```
+
+
+A unidade é o **metro** tendo como origem o Equador e o Meridiano Central. No hemisfério Sul, o sistema possui o valor 10.000.000,00 m no Equador para a corrdenada Norte, decrescendo para o Sul. E o valor 500.000,00 m no Meridiano Central para a coordenada leste, decrescendo para Oeste e crescendo para leste.     
+
+As Coordenadas UTM definem posições bi-dimensionais e horizontais.
+
+- Fusos UTM no território brasileiro: Fusos 18 a 25
+
+- Belo Horizonte: Fuso 23
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/utm.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/utm_br.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/utm1.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/utm2.png')
+```
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/utm5.png')
+```
+
+
+#### Sistemas de Informações Geográficas
+:::justa
+GIS significa "Sistema de Informação Geográfica" ou "Geographic Information System".    
+
+Os GIS são um conjunto de ferramentas usadas para coleta e tratamento de informações espaciais, geração de saídas na forma de mapas, relatórios, arquivos digitais, etcc.
+
+- Deve prover recursos para sua armazenagem, gerenciamento, manipulação e análise.  
+
+- Geoprocessamento representa qualquer tipo de processamento de dados georeferenciados (conceito muito mais abrangente). 
+
+- Um SIG é capaz de processar dados gráficos e não gráficos (alfanuméricos), com ferramentas de análises espaciais e modelagens de superfícies.
+
+Assim como usamos um processador de texto para escrever documentos e lidar com palavras em um computador, podemos usar um aplicativo GIS para lidar com informações espaciais em um computador. 
+:::
+
+##### Definições de GIS    
+“Conjunto poderoso de ferramentas para coletar, armazenar, recuperar, transformar e visualizar dados sobre o mundo real”(Burrough)   
+
+“Um sistema de suporte à decisão que integra dados referenciados espacialmente num ambiente de respostas a problemas” (Cowen)   
+
+“Um banco de dados indexados espacialmente, sobre o qual opera um conjunto de procedimentos para responder a consultas sobre entidades espaciais” (Smith)  
+
+##### Por que fazer cartografia digital?   
+Fazer mapas mais rapidamente.   
+Fazer mapas mais baratos.   
+Fazer mapas para usos específicos.   
+Fazer mapas em situações em que não há disponibilidade de pessoal especializado.   
+Permitir experimentos com representações espaciais diversas dos mesmos dados.   
+Facilitar atualização de mapas.   
+Facilitar análises de dados que exigem interação entre estatística e mapas.  
+Minimizar a necessidade de mapas em papel.     
+Fazer mapas que não podem ser representados em papel, como em 3D, por exemplo.   
+
+#### Estrutura do shapefile   
+`.dbf` – Banco de dados – Informações dos atributos das feições   
+`.prj` – Sistemas de coordenadas geográficas   
+`.snb` e `.sbx` – Armazenam os índices espaciais das feições   
+`.shp` – Armazenam a geometria das feições   
+`.shx` – Armazena o índice da geometria das feições – busca rápida   
+`.xml` - metadado em formato XML   
+
+
+### Material de suporte
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3ii17pnlpTs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aW-qbx04gS4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ecZIluGHOW4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YW8lwn8L6rA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xKGlMp__jog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AcBlPMGwLdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NhUgYgH53l0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+### Atividade da semana
+Quiz sobre cartografia, GIS e shapefiles.
+
+## Semana 3: Análise exploratória de dados
+
+

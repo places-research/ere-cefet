@@ -1,0 +1,66 @@
+[
+  {
+    "path": "posts/2020-08-24-tutoriais-para-qgis/",
+    "title": "Tutoriais para QGIS",
+    "description": "Algumas referencias de tutoriais para QGIS em português e inglês.",
+    "author": [
+      {
+        "name": "Renata Oliveira",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-08-24T09:22:12-03:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2020-08-24-webscrapping/",
+    "title": "Webscrapping",
+    "description": "Tutorias e dicas de scrapping na web.",
+    "author": [
+      {
+        "name": "Renata Oliveira",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-24",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-08-24T20:18:42-03:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2020-08-20-blogs-sobre-r-em-portugues/",
+    "title": "Blogs sobre R em portugues",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Renata Oliveira",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-20",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-08-20T20:02:11-03:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2020-08-20-R-para-analise-espacial/",
+    "title": "R para analise espacial",
+    "description": "Links interessantes para aprendizagem de R como ferramenta de tratamento da informacao espacial",
+    "author": [
+      {
+        "name": "Renata Oliveira",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-20",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-08-24T09:21:53-03:00",
+    "input_file": {}
+  }
+]

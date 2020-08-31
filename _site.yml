@@ -1,0 +1,82 @@
+name: "places"
+title: "PLACES - PLanning for ACcESs"
+description: |
+  PLACES - PLanning for ACcESs
+params:
+  
+output_dir: "docs"
+
+navbar:
+  logo:
+    image: img/logo.png
+    href: https://www.places-research.github.io/places
+  left:
+    - text: "Quem somos"
+      href: index.html
+    - text: "Projetos"
+      href: projetos.html
+    - text: "Publicacoes"
+      menu:
+        - text: "Periodicos"
+          href: journal.html
+        - text: "Conferencias"
+          href: conference.html
+        - text: "Livros"
+          href: books.html
+    - text: "Cursos"
+      menu:
+        - text: "Fundamentos do ERE"
+          href: ere.html
+        - text: "ERE com humor"
+          href: fun.html
+        - text: "Gestao da Qualidade"
+          href: qualidade.html
+        - text: "GIS e analise espacial para ciencias sociais"
+          href: gis.html
+        - text: "Pratica: QGIS, GeoDa e R para analise espacial"
+          href: qgis.html
+    - text: "Blog"
+      href: posts.html
+  right:
+    - icon: "fa-github"
+      href: https://github.com/places-research/site
+    - icon: "fa fa-envelope-o"
+      href: mailto:renataoliveira@cefetmg.br
+    - icon: "fa fa-twitter"
+      href: https://twitter.com/retaoliveira
+    - icon: "ai ai-google-scholar"
+      href: https://scholar.google.com/citations?user=V6EX45EAAAAJ
+    - icon: "ai ai-lattes"
+      href: "http://lattes.cnpq.br/2642488704355833"
+    - icon: "ai ai-researchgate"  
+      href: https://www.researchgate.net/profile/Renata_Oliveira17
+
+output:
+  distill::distill_article:
+    toc: true
+    css: [styles.css, academicons.css]
+
+author:
+  - name: "Renata Oliveira"
+    url: https://github.com/retaoliveira
+    affiliation: Centro Federal de Educação Tecnológica de Minas Gerais
+    affiliation_url: https://www.cefetmg.br
+include: ["import.R", "slides/"]
+exclude: ["docs.txt", "*.csv"]
+favicon: img/favicon.png
+base_url: https://places-research.github.io/places
+repository_url: https://github.com/places-research/places
+acknowledgments: 
+twitter:
+  site: "@places-research"
+  creator: "@retaoliveira"
+  
+collections:
+  posts:
+    share: [twitter, linkedin]
+    citations: true
+  pubs:
+    share: [twitter, linkedin]
+    citations: true
+    
+  

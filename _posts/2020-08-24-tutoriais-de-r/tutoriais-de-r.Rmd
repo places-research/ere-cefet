@@ -1,0 +1,26 @@
+---
+title: "Tutoriais de R"
+description: |
+  Tutoriais e livros de R para Data Science.
+author:
+  - name: Renata Oliveira
+    url: {}
+date: 08-24-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Em inglês
++ [R for data Science by Hadley Wickham and Garret Grolemund](https://r4ds.had.co.nz/)
++ [RMarkdown by RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
++ [Introduction to Machine Learning with the Tidyverse by Alison Hill](https://alison.rbind.io/project/tidyml/)
+
+Em português
++ [Curso-R - Livro](https://livro.curso-r.com/)
++ [Curso-R - materiais](http://material.curso-r.com/)
++ [Curso de R para Jornalistas by Gabriela Caesar](https://www.curso-de-programacao-em-r-para-jornalistas.com/2019/10/27/saiba-mais-sobre-o-r/)

@@ -1,0 +1,52 @@
+---
+title: "PLACES"
+author: "Renata Lúcia Magalhães de Oliveira"
+date: "`r Sys.Date()`"
+description: |
+  PLanning for ACcESs research group.
+site: distill::distill_website
+output: 
+  distill::distill_article:
+    css: styles.css
+    toc: false
+  
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+:::justa
+Renata Oliveira possui graduação em Engenharia Civil pela Universidade Federal de Minas Gerais (2001), mestrado em Engenharia de Transportes pelo Instituto Militar de Engenharia (2004) e doutorado em Geografia - Tratamento da Informação Espacial pela PUCMinas (2015). Atualmente é professora do Centro Federal de Educação Tecnológica de Minas Gerais. É coordenadora do grupo de pesquisa Planejamento da Acessibilidade (PLACES), parte do Núcleo de Estudos Organizacionais e Sociedade e Subjetividade e membro da rede de pesquisa NIUMAR. É bolsista de produtividade em pesquisa (CNPq). Os principais temas de pesquisa explorados pela pesquisadora estão relacionados à integração entre o planejamento urbano orientado à acessiblidade, planejamento de transportes (cargas e pessoas), Logística Urbana e análise espacial.
+:::
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "PLACES - Planning for Access",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "places-research/places") %>% 
+  meta_social(
+    title = "PLACES",
+    url = "https://places-research.github.io/places/",
+    image = "https://places-research.github.io/places/img/logo.png",
+    image_alt = "PLACES",
+    og_type = "website",
+    twitter_card_type = "summary_large_image"
+  )
+```
+
+## Acknowledgments {.appendix}
+
+This is website made with the [distill package](https://rstudio.github.io/distill/) and a custom theme by [Alison Hill](https://alison.rbind.io/) & [Desirée De Leon](https://desiree.rbind.io/).
+

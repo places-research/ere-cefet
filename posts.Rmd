@@ -1,0 +1,12 @@
+---
+title: "Blog"
+site: distill::distill_article
+listing: posts
+output:
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 2
+
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">

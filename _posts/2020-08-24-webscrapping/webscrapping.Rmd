@@ -1,0 +1,19 @@
+---
+title: "Webscrapping"
+description: |
+  Tutorias e dicas de scrapping na web.
+author:
+  - name: Renata Oliveira
+date: 08-24-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
++ [Precificação de Imóveis em Curitiba by Walmes Marques Zeviani](http://www.leg.ufpr.br/~walmes/cursoR/mgest/0preco-imovel.html)
++ [Análise de aluguel em São Paulo by Luan Menezes](https://medium.com/@luancmenezes/melhor-m%C3%AAs-para-encontrar-alugueis-baratos-em-sp-f9754bc2c549)
++ [Paixão por Dados by Sillas Teixeira Gonzaga](http://sillasgonzaga.com/tags/web-scraping/)

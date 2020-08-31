@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://places-research.github.io/places/</loc>
+    <lastmod>2020-08-27T12:24:04-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://places-research.github.io/places/posts/2020-08-24-tutoriais-para-qgis/</loc>
+    <lastmod>2020-08-24T09:22:12-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://places-research.github.io/places/posts/2020-08-24-webscrapping/</loc>
+    <lastmod>2020-08-24T20:18:42-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://places-research.github.io/places/posts/2020-08-20-blogs-sobre-r-em-portugues/</loc>
+    <lastmod>2020-08-20T20:02:11-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https://places-research.github.io/places/posts/2020-08-20-R-para-analise-espacial/</loc>
+    <lastmod>2020-08-24T09:21:53-03:00</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,324 @@
+---
+title: "QGIS, GeoDa e R"
+author: "Renata Lúcia Magalhães de Oliveira"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 2
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+
+# Práticas em GIS e RSpatial
+:::justa
+São propostas atividades, em módulos e associadas às semanas de trabalho, para desenvolvimento de competências que possibilitem implementações práticas das ferramentas QGIS, R/RStudio e GeoDa.
+
+Módulo | Conceitos | Semana
+-------|-----------|---------
+1 | Instalação dos software QGIS, R, RStudio e GeoDa | 1
+2 | Ambiente de trabalho do QGIS | 2
+3 | Sistemas de coordenadas | 2
+4 | Trabalhando com arquivos Shapefile | 2
+5 | Ambiente do R/RStudio | 3
+6 | Tipos de dados e classes de dados no R | 3
+7 | Leitura e gravação de dados no R e RStudio | 3
+8 | Análise descritiva de dados | 3
+9 | Gráficos básicos no R | 3
+10 | Layout de mapas | 4
+11 | Geocodificação | 4
+12 | Mapas temáticos (categóricos e numéricos) | 4
+13 | Seleção por atributo ou por localização | 5
+14 | Manipulação de dados no R e no GIS | 5
+15 | Representação básica de informação espacial no R `sp` e `sf` |6
+16 | Leitura e gravação de dados espaciais no R | 6
+17 | Mapas básicos no R `tmap` | 6
+18 | Dados raster no QGIS | 7
+19 | Dados raster no R | 7
+20 | Manipulação de feições no QGIS | 8
+21 | Uso do R como GIS `GISTools` | 8
+22 | Análise de padrões espaciais no QGIS| 9
+23 | Análise de padrões espaciais no R `rgeos` e `tmaptools` | 10
+24 | Indicadores de autocorrelação espacial no QGIS | 11
+25 | Indicadores de autocorrelação espacial no R `SpatialEpi` | 12
+26 | Tratamento de dados de distância no QGIS | 13
+27 | Tratamento de dados de distância no GeoDa | 14
+28 | Tratamento de dados de distância no R | 14
+29 | Análise multicriterial espacial no QGIS | 15
+30 | Webscrapping `dplyr` | 15
+:::
+
+## Instalação 
+:::justa
+Nesta seção são apresentados links para efetivação da instalação dos software necessários para desenvolvimento das práticas propostas. 
+:::
+### R
+:::justa
+> Baixar e instalar o R: <a href="https://cran.r-project.org/bin/windows/base/" target="_blank">link</a>
+
+No link acima é apresentado o processo de instalação para Windows. No mesmo site é possível encontrar procedimentos de instalação para outros sistemas operacionais. 
+
+Links adicionais:    
+<a href="https://rpubs.com/cassiorampinelli/488999" target="_blank">Visão geral e primeiros passos com R e RStudio</a>
+:::
+
+### RStudio
+:::justa
+
+> Baixar e instalar o RStudio: <a href="https://rstudio.com/products/rstudio/download/" target="_blank">link</a>
+
+No link acima é apresentado o processo de instalação para Windows. No mesmo site é possível encontrar procedimentos de instalação para outros sistemas operacionais. 
+:::
+
+### QGIS
+:::justa
+
+Baixar e Instalar o QGIS:  
+
+> <a href="https://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe" target="_blank">64 bits</a>    
+> <a href="https://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe" target="_blank">32 bits</a>
+
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/pV84APESgXc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:::
+
+### GeoDa
+:::justa
+> Baixar e instalar o GeoDa: <a href="https://geodacenter.github.io/download.html" target="_blank">link</a>
+
+:::
+
+# Semana 1
+
+
+
+# **Mão na massa - QGIS** - 01/07/2020  
+
+## Bases de dados   
+Belo Horizonte   
+
+ - [`shapefiles` - BHMaps](https://drive.google.com/drive/folders/1bZmcOwZLvs9op7kQYAHshvCELk4M35o4?usp=sharing)      
+ 
+ - [Setores censitários sem renda](https://drive.google.com/drive/folders/1gRQ3pM__jGSPq-dk35hVlLS4S5hzlRWc?usp=sharing)   
+ 
+ - [Setores censitários com renda](https://drive.google.com/drive/folders/1twMTRnrSY0ugLwC7xJq7LzuuPiXDYmRX?usp=sharing)
+ 
+ - [Bairros](https://drive.google.com/drive/folders/1gDOdMb3elvcolWgV_3jBOV_xfwo7A08e?usp=sharing)  
+ 
+ - [Estabelecimentos comerciais](https://drive.google.com/drive/folders/1ZVoVW7QG7uyxkHOAJLu1p9ViTm9TK5jW?usp=sharing)   
+ 
+ - [Áreas de presevação permanente](https://drive.google.com/drive/folders/1i3Ax_Z6J93utrAkpRTMG13rF50u_WND6?usp=sharing)   
+ 
+
+## Dados espaciais e sistemas de referência   
+1. Abrir o `shapefile` e verificar qual o sistema de coordenadas ativo.    
+2. Transformar o sistema de coordenadas em `WGS84` e salvar como um novo shapefile   
+3. Transformar todos os `shapefiles` para coordenadas projetadas `SIRGAS 2000 - UTM 23 S`
+4. Mudar a cor dos dados vetoriais para apresentações que permitam a análise da sobreposição de camadas.   
+
+## Tabela de atributos e manipulação de dados espaciais   
+1. Verificar o número de observações e o número de atributos na `tabela de atributos`   
+2. Selecionar setores censitários com população menor do que 400 habitantes.    
+3. Exportar apenas os dados selecionados como um novo shapefile.   
+4. Abrir os dados referentes à renda em cada setor censitário e importar os dados para o shapefile original.
+5. Abrir os dados de empresas no município de Belo Horizonte. 
+6. Selecionar os pontos que estão localizados em setores censitários com mais de 500 habitantes. 
+7. Contar o número de pontos em cada unidade espacial
+8. Agregar dados de população dos setores censitários em bairros
+9. Agregar dados de população de bairros para regionais   
+8. Elaborar mapas temáticos de renda, população, áreas de preservação    
+10. Gerar centroides dos setores censitários
+
+## Mapas temáticos
+1. Elaborar mapas temáticos 
+
+## Geocodificação   
+1. Geocodificar o parque onde será instalado o empreendimento em análise.
+2. Colocar a informação no QGIS.    
+
+## Layout de impressão    
+1. Gerar layout de impressão contendo legenda, indicação de norte, escala.   
+
+# QGIS    
+## Ambiente e funcionalidades básicas do QGIS   
+**1. Ambiente geral**   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q1.png')
+```
+
+**2. Complementos**   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q2.png')
+```
+
+**3. Acesso aos dados espaciais**   
+
+Vamos trabalhar com dados na estrutura `shapefile` - camadas vetoriais   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q3.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q4.png')
+```
+
+**4. Mudança de atributos dos shapefiles**   
+
+Mudança de cores das camadas    
+
+- acesso às propriedades da camada   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q7.png')
+```
+
+- Recursos para alteração da representação das feições nas camadas    
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q5.png')
+```
+
+> Pode haver incompatibilidade entre feições causadas pela qualidade do dado vetorial ou por uso de diferentes projeções. Isso não inviabiliza o uso do dado espacial, mas podem ser necessárias conversões de sistemas de referência ou mesmo tratamento da geometria das feições.   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q8.png')
+```
+
+
+**5. Mudança de datum e sistemas de coordenadas**   
+
+**Transformações on-the-fly**   
+
+O mecanismo de transformações `on-the-fly` realiza reprojeções automáticas para fins de visualização/renderização.
+
+São reprojeções dinâmicas, que não afetam o dado original   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q9.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q10.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q11.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q12.png')
+```
+
+**Reprojetar ou converter**   
+Para reprojetar ou converter para outro formato: 
+Salvar a camada com o novo sistema de referência/formato
+Botão direito sobre a camada > Save as... 
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q13.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q14.png')
+```
+
+**6. Tabela de atributos**    
+
+A `tabela de atributos` pode ser acessada pelo mesmo menu da camada. Na `tabela de atributos` são apresentadas as observações e os atributos de cada feição geométrica gerreferenciada. É análoga a uma planilha ou a um data.frame (`R`). É importante lembrar que só é possível associar um banco de dados (tabela de atributos) a um dado vetorial. Cada observação é uma feição geométrica desse dado.    
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q17.png')
+```
+
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q18.png')
+```
+
+**7. Geocodificação**   
+
+O complemento que utilizo para geocodificação é o `MMQGIS`, que conecta direto com as APIs do Google e do OSM. Para fazer a geocodificação pelo Google, é necessária chave de acesso e token, pois acima de 2.500 requisiçoes por IP por dia são cobradas. Assim, recomendo a utilização do `OSM`. 
+
+O arquivo a ser organizado e importado no `QGIS` para geocodificação é no formato `.csv` e codificação `UTF-8`. Nesse arquivo devem ser organizadas as informações sobre o endereço em quatro colunas:   
+- address   
+- city   
+- state   
+- country   
+
+Na primeira coluna colocamos o endereço completo sem as informações de cidade, estado e país.   
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q16.png')
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qvUgWpidJ5A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZIeLmrR7Kz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d9UAn8M9tZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**8. Mapas temáticos** 
+
+Mapas temáticos são representações em feições geométricas do atributo de interesse utilizando elementos visuais para visualização da estrutura espacial desses dados. 
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q22.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q23.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q24.png')
+```
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q25.png')
+```
+
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q26.png')
+```
+
+**9. Geração de Layout de impressão**   
+Para gerarmos o layout de impressão dos mapas, é necessário acessar o ambiente de edição do layout. 
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q19.png')
+```
+
+O ambiente de edição de layout tem a seguinte estrutura:
+
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q20.png')
+```
+
+Para inserir os elementos gráficos e textuais no layout, você deve acessar o menu à esquerda da página em branco e incluir mapas, legendas, indicador de norte, escala, dentre outros elementos. 
+
+```{r echo=FALSE, out.width='60%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q21.png')
+```
+
+**10. Manipulação de dados**   
+1. seleção por atributo e por localização   
+2. join por código e join espacial   
+3. geração de centroides e agregação de variaveis   
+
+
+**11. Dados no formato raster**
+
+[Metadados ANA](https://metadados.ana.gov.br/geonetwork/srv/pt/metadata.show?uuid=830d00e6-9924-469d-b24b-aff67a1fd432)
+
+
+**12. GeoDa para análise espacial e econometria espacial**    
+[GeoDa - Documentação e download](https://geodacenter.github.io/)
+
+## Conteúdo semanal
+
+ <a href="#top">Back to top</a>

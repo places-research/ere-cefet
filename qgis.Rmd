@@ -1,0 +1,278 @@
+---
+title: "QGIS, GeoDa e R"
+author: "Renata Lúcia Magalhães de Oliveira"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 2
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+
+# Práticas em GIS e RSpatial
+:::justa
+São propostas atividades, em módulos e associadas às semanas de trabalho, para desenvolvimento de competências que possibilitem implementações práticas das ferramentas QGIS, R/RStudio e GeoDa.
+
+Módulo | Conceitos | Semana
+-------|-----------|---------
+1 | Instalação dos software QGIS, R, RStudio e GeoDa | 1
+2 | Ambiente de trabalho do QGIS | 2
+3 | Sistemas de coordenadas | 2
+4 | Trabalhando com arquivos Shapefile | 2
+5 | Ambiente do R/RStudio | 3
+6 | Tipos de dados e classes de dados no R | 3
+7 | Leitura e gravação de dados no R e RStudio | 3
+8 | Análise descritiva de dados | 3
+9 | Gráficos básicos no R | 3
+10 | Layout de mapas | 4
+11 | Geocodificação | 4
+12 | Mapas temáticos (categóricos e numéricos) | 4
+13 | Seleção por atributo ou por localização | 5
+14 | Manipulação de dados no R e no GIS | 5
+15 | Representação básica de informação espacial no R `sp` e `sf` |6
+16 | Leitura e gravação de dados espaciais no R | 6
+17 | Mapas básicos no R `tmap` | 6
+18 | Dados raster no QGIS | 7
+19 | Dados raster no R | 7
+20 | Manipulação de feições no QGIS | 8
+21 | Uso do R como GIS `GISTools` | 8
+22 | Análise de padrões espaciais no QGIS| 9
+23 | Análise de padrões espaciais no R `rgeos` e `tmaptools` | 10
+24 | Indicadores de autocorrelação espacial no QGIS | 11
+25 | Indicadores de autocorrelação espacial no R `SpatialEpi` | 12
+26 | Tratamento de dados de distância no QGIS | 13
+27 | Tratamento de dados de distância no GeoDa | 14
+28 | Tratamento de dados de distância no R | 14
+29 | Análise multicriterial espacial no QGIS | 15
+30 | Webscrapping `dplyr` | 15
+:::
+
+
+# Dados considerados para desenvolvimento das atividades práticas neste curso e respectivas fontes:
+
+1. Dados de infecção por COVID-19 e suas consequências   
+2. Dados da Google e da Apple sobre mobilidade na pandemia   
+3. Dados socioeconômicos e demográficos dos recortes espaciais em análise
+    - Belo Horizonte e RMBH
+    - Unidades espaciais mais desagregadas de dados do COVID-19
+
+
+Arquivo |	Unidade espacial | GCS/PCS |	Área de estudo |	Atributos |	Fonte
+--------|------------------|---------|-----------------|------------|---------
+bairro |	Polígons - bairros |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Dados gerais do censo 2010 |	BHMaps
+creches |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Dados gerais do censo 2010 |	BHMaps
+edificação |	polígonos – unidades construídas |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Geometria das regionais |	BHMaps
+ensino_superior |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Geometria dos municípios |	BHMaps
+escolas_estaduais |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Lagoa |	Geometria da lagoa |	BHMaps
+escolas_federais |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Geometria dos municípios |	BHMaps
+escolas_municipais_infantil |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Dados do censo 2010 |	BHMaps
+escolas_municipais_fundamental |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Lojas |	 |BHMaps
+escolas_particulares |	pontos – equipamentos |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Vias |	BHMaps
+lagoa | 	polígono - lagoas |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	Lojas |	BHMaps
+município_rmbh |	polígono – divisa municipal |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	 |	BHMaps
+regional |	polígono – regionais |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	 |	BHMaps
+setor_censitario |	polígono – setor censitário |	SIRGAS 2000 UTM 23S |	Belo Horizonte |	 |	BHMaps
+uso_solo |	polígono – unidades de ocupação dos lotes |	SIRGAS 2000 UTM 23S |	Belo Horizonte |		 |BHMaps
+vila_favela |		 |SIRGAS 2000 UTM 23S |	Belo Horizonte |		 |BHMaps
+
+
+Belo Horizonte   
+
+ - [`shapefiles` - BHMaps](https://drive.google.com/drive/folders/1bZmcOwZLvs9op7kQYAHshvCELk4M35o4?usp=sharing)      
+ 
+ - [Setores censitários sem renda](https://drive.google.com/drive/folders/1gRQ3pM__jGSPq-dk35hVlLS4S5hzlRWc?usp=sharing)   
+ 
+ - [Setores censitários com renda](https://drive.google.com/drive/folders/1twMTRnrSY0ugLwC7xJq7LzuuPiXDYmRX?usp=sharing)
+ 
+ - [Bairros](https://drive.google.com/drive/folders/1gDOdMb3elvcolWgV_3jBOV_xfwo7A08e?usp=sharing)  
+ 
+ - [Estabelecimentos comerciais](https://drive.google.com/drive/folders/1ZVoVW7QG7uyxkHOAJLu1p9ViTm9TK5jW?usp=sharing)   
+ 
+ - [Áreas de presevação permanente](https://drive.google.com/drive/folders/1i3Ax_Z6J93utrAkpRTMG13rF50u_WND6?usp=sharing)   
+ 
+
+# **Módulos
+
+<aside>
+**Conteúdo da página**
+ <a href="#praticas-em-gis-e-rspatial">Práticas em GIS e RSpatial</a>
+ <a href="#módulos">Módulos</a>   
+ <a href="#top">Início</a>
+</aside>
+
+
+## Módulo 1: Instalação dos software necessários para este curso   {.tabset}
+
+:::justa
+Nesta seção são apresentados links para efetivação da instalação dos software necessários para desenvolvimento das práticas propostas. 
+:::
+### R
+:::justa
+> Baixar e instalar o R: <a href="https://cran.r-project.org/bin/windows/base/" target="_blank">link</a>
+
+No link acima é apresentado o processo de instalação para Windows. No mesmo site é possível encontrar procedimentos de instalação para outros sistemas operacionais. 
+
+Links adicionais:    
+<a href="https://rpubs.com/cassiorampinelli/488999" target="_blank">Visão geral e primeiros passos com R e RStudio</a>
+:::
+
+### RStudio
+:::justa
+
+> Baixar e instalar o RStudio: <a href="https://rstudio.com/products/rstudio/download/" target="_blank">link</a>
+
+No link acima é apresentado o processo de instalação para Windows. No mesmo site é possível encontrar procedimentos de instalação para outros sistemas operacionais. 
+:::
+
+### QGIS
+:::justa
+
+Baixar e Instalar o QGIS:  
+
+> <a href="https://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe" target="_blank">64 bits</a>    
+> <a href="https://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe" target="_blank">32 bits</a>
+
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/pV84APESgXc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:::
+
+### GeoDa
+:::justa
+> Baixar e instalar o GeoDa: <a href="https://geodacenter.github.io/download.html" target="_blank">link</a>
+
+:::
+### Atividades do módulo
+:::justa
+Instalar as plataformas necessárias para desenvolvimento do curso. 
+:::
+
+## Módulo 2: Ambiente de Trabalho do QGIS   
+:::justa
+Neste módulo são apresentados os elementos componentes do ambiente de trabalho do QGIS e suas respectivas finalidades. 
+:::
+### Material de suporte
+
+**1. Ambiente geral**   
+
+QGIS é um Sistema de Informações Geográficas aberto, colaborativo e que apresenta interface composta conforme o Vídeo 1.
+
+Vídeo 1
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q1.png')
+```
+
+**2. Complementos**   
+As funcionalidades no QGIS estão disponíveis nas barras de ferramentas já instaladas e outras possibilidades estão presentes nos complementos que podem ser instalados conforme Vídeo 2
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q2.png')
+```
+
+### Atividades do módulo
+:::justa
+Para entendimento do ambiente de trabalho do QGIS não serão realizadas atividades referentes a este módulo, especificamente. Vamos explorar a interface do QGIS ao longo de todo o curso. Assim, não há atividades práticas alinhadas com este módulo. 
+:::
+
+## Módulo 3: Sistemas de coordenadas
+### Material de suporte
+
+Vídeo 2
+
+**1. Mudança de datum e sistemas de coordenadas**   
+
+**Transformações on-the-fly**   
+
+O mecanismo de transformações `on-the-fly` realiza reprojeções automáticas para fins de visualização/renderização.
+
+São reprojeções dinâmicas, que não afetam o dado original   
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q9.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q10.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q11.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q12.png')
+```
+
+**Reprojetar ou converter**   
+Para reprojetar ou converter para outro formato: 
+Salvar a camada com o novo sistema de referência/formato
+Botão direito sobre a camada > Save as... 
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q13.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q14.png')
+```
+
+### Atividades do módulo
+
+**Dados espaciais e sistemas de referência**   
+1. Abrir o `shapefile` e verificar qual o sistema de coordenadas ativo.    
+2. Transformar o sistema de coordenadas em `WGS84` e salvar como um novo shapefile   
+3. Transformar todos os `shapefiles` para coordenadas projetadas `SIRGAS 2000 - UTM 23 S`
+4. Mudar a cor dos dados vetoriais para apresentações que permitam a análise da sobreposição de camadas.   
+ 
+:::
+
+## Módulo 4: Trabalhando com arquivos Shapefile 
+### Material de suporte
+**1. Acesso aos dados espaciais**   
+
+Vamos trabalhar com dados na estrutura `shapefile` - camadas vetoriais   
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q3.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q4.png')
+```
+
+**2. Mudança de atributos dos shapefiles**   
+Mudança de cores das camadas     
+
+- acesso às propriedades da camada    
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q7.png')
+```
+
+- mudanças das propriedades       
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q8.png')
+
+```
+
+Pode haver incompatibilidade entre feições causadas pela qualidade do dado vetorial ou por uso de diferentes projeções. Isso não inviabiliza o uso do dado espacial, mas podem ser necessárias conversões de sistemas de referência ou mesmo tratamento da geometria das feições.
+
+**3. Tabela de atributos**    
+A `tabela de atributos` pode ser acessada pelo mesmo menu da camada. Na `tabela de atributos` são apresentadas as observações e os atributos de cada feição geométrica gerreferenciada. É análoga a uma planilha ou a um data.frame (`R`). É importante lembrar que só é possível associar um banco de dados (tabela de atributos) a um dado vetorial. Cada observação é uma feição geométrica desse dado.    
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q17.png')
+```
+
+```{r echo=FALSE, out.width='100%', fig.align = 'center'}
+knitr::include_graphics('D:/Google Drive/17_sites/places/img/q18.png')
+```
+
+### Atividades do módulo
+:::justa
+**Tabela de atributos e manipulação de dados espaciais**      
+1. Verificar o número de observações e o número de atributos na `tabela de atributos`   
+2. Selecionar setores censitários com população menor do que 400 habitantes.    
+3. Exportar apenas os dados selecionados como um novo shapefile.  
+:::
+
+ <a href="#top">Back to top</a>

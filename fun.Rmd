@@ -1,0 +1,26 @@
+---
+title: "Everything is gonna be alright"
+description: |
+  ERE com humor!
+author:
+  - name: Renata Oliveira 
+    url: https://places-research.github.io/places
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r echo=FALSE, out.width='30%', fig.align = 'center'}
+#knitr::include_graphics('D:/Google Drive/17_sites/places/img/gui_hat.jpg')
+```
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/AkdM0YRz_j0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

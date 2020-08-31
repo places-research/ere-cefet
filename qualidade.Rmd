@@ -1,0 +1,294 @@
+---
+title: "Gestão da Qualidade"
+author: "Renata Oliveira e Paulo Sanches"
+date: "`r Sys.Date()`"
+Collection: qualidade
+output: 
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 2
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+# **Estrutura da disciplina**
+<aside>
+**Conteúdo da página**
+ <a href="#estrutura-da-disciplina">Estrutura da disciplina</a>
+ <a href="#conteúdo-semanal">Conteúdo semanal</a>   
+ <a href="#top">Início</a>
+</aside>
+
+### Instrumentos de aprendizagem na disciplina
+:::justa
+Esta disciplina será estruturada conforme unidades de ensino e com periodicidade em ciclos semanais. Propõe-se, com foco nos objetivos de aprendizagem centrados no estudante, as componentes apresentadas na Tabela 2.
+:::
+Tabela 2: Estrutura Semanal da disciplina
+
+```{r}
+library(dplyr)
+library(kableExtra)
+library(rmarkdown)
+library(readr)
+
+tab1 <- read_delim("secXXI.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+
+#paged_table(tab1, options = list(rows.print = 4, cols.print = 3))
+kable(tab1, escape = FALSE) %>%
+  kable_styling("striped", full_width = FALSE)
+```
+
+
+
+### Encargos da disciplina
+:::justa
+Os alunos deverão entregar 02 atividades semanais e participar dos momentos síncronos. O registro da frequência será realizada por meio da entrega das atividades semanais. Caso o aluno opte por não participar dos encontros síncronos, bastará a entrega das atividades semanais. Entretanto, caso os alunos não realizem a entrega de alguma das atividades, o registro da frequência será realizado pela sua presença no momento síncrono.
+:::
+### Instrumentos de avaliação
+:::justa
+A proposta avaliativa para esta disciplina é fundamentada nos objetivos de aprendizagem de cada componente.  Assim, as atividades, bem como pontuação, foram distribuídos por semanas. Toda semana será pontuada, não sendo necessário provas ao longo da disciplina. Semanalmente, os alunos terão 02 atividades: os CHECKPOINTS e as TAREFAS PRELIMINARES.  Os checkpoints serão momentos de verificação do conteúdo assimilado pelo aluno na semana, podendo ser apresentados na forma de fóruns, quizzes ou situações-problema. Já as TAREFAS PRELIMINARES são atividades preliminares que farão o aluno perceber o conteúdo que será ministrado na semana que ainda não se iniciou. Essas tarefas podem ser a gravação de um pequeno vídeo, uma foto, participação em fóruns, etc. A carga de trabalho está estruturada para fomentar a proposta de aprendizagem centrada no estudante. Em todas as atividades semanais, foram propostas rubricas (critérios) de avaliação para as atividades estruturadas. 
+:::
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results='asis'}
+library(dplyr)
+library(kableExtra)
+library(readr)
+tab1 <- read_delim("quali.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+kable(tab1, escape = FALSE) %>%
+  kable_styling("striped", full_width = FALSE)
+```
+
+### Condições para aprovação no curso   
+:::justa
+Para serem aprovados, cada aluno deve ter, no mínimo:
+
+75% de cumprimento da carga horária da disciplina, **e** 60 pontos   
+:::
+
+ <hr>
+ 
+# **Conteúdo Semanal**
+ <aside>
+**Conteúdo da página**
+ <a href="#estrutura-da-disciplina">Estrutura da disciplina</a>
+ <a href="#conteúdo-semanal">Conteúdo semanal</a>    
+ <a href="#top">Início</a>
+</aside>
+
+## Semana 1
+
+#### **Documentação**
+[Aprendizagem baseada em problemas](https://drive.google.com/file/d/1i88eNb0SFgOu3GZ7ViNNCe9cXfLMTgPk/view?usp=sharing)   
+
+[Contextualização - 4a revolução industrial e as competências do profissional no século XXI](https://drive.google.com/file/d/1DCHpym0QaGy5JzCnnh9YYnA5LVhn_7k0/view?usp=sharing)   
+
+#### **Checkpoint**
+
+PRAZO PARA SUBMISSÃO: 22/08/2020
+
+__Discussão: Como você se enxerga no mercado de trabalho do século XXI?__
+
+:::justa
+
+Instruções:
+
+1. Assista os vídeos.
+
+2. Faça uma revisão dos conteúdos desta unidade.
+
+3. Realize o teste de múltiplas inteligências(Links para um site externo.) neste link.
+
+4. Faça uma reflexão sobre as demandas do mercado de trabalho e o quanto você pode contribuir com sua formação. Responda uma das questões a seguir (200-500 palavras, 2-4 parágrafos).
+
+  - O que você pode fazer para contribuir para sua formação no contexto do século XXI?   
+  - Quais são suas inteligências mais predominantes e como elas se relacionam com as competências para o século XXI?
+
+5. Poste sua resposta no Fórum - [Checkpoint 1 - Canvas](https://canvas.instructure.com/courses/2212314/discussion_topics/9484973)
+:::
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ngf8Jq2nuGc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2j00U6lUC-c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RC--p1aCzWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bKcBRTCXGEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bj9ciijbMj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+#### **Tarefa preliminar**
+
+PRAZO PARA SUBMISSÃO: 25/08/2020
+
+__Discussão: Sistema input-output__
+
+Instruções:
+
+1. Faça um pequeno vídeo (30 segundos a 1 minuto) registrando um processo de transformação.
+
+2. Explique qual é o processo que está sendo registrado no vídeo, enfatizando as suas entradas e as saídas.
+
+3. Poste sua resposta no [Fórum 1 - Tarefa preliminar 1](https://canvas.instructure.com/courses/2212314/discussion_topics/9484958).
+
+<hr>
+## Semana 2
+
+#### **Documentação**
+Os vídeos desta semana estão no Canvas. A temática central é a modelagem de processos de transformação por meio de modelos INPUT-OUTPUT. Alguns termos-chave foram explorados no momento síncrono, a saber:   
++ modelos   
++ eficiência, eficácia e efetividade   
++ produtividade   
++ complexidade   
++ escopo e limitação do sistema   
++ foco no processo + foco no cliente   
+
+
+#### **Checkpoint**
+PRAZO PARA SUBMISSÃO: 29/08/2020
+
+[Checkpoint semana 2](https://canvas.instructure.com/courses/2212314/quizzes/5712185)
+
+#### **Tarefa preliminar**
+
+PRAZO PARA SUBMISSÃO: 01/09/2020
+
+__Discussão: Você acha que a empresa do filme tem Qualidade?__   
+
+Instruções:
+
+:::justa
+1. Assista o vídeo
+
+2. Faça uma revisão dos conteúdos desta unidade.
+
+3. Faça uma reflexão sobre o conceito de qualidade e responda duas ou mais questões dentre as questões a seguir (200-500 palavras, 2-4 parágrafos).   
+
+  - Analisando a empresa de fast-food que atende ao cliente do filme, ela tem qualidade?   
+  - Qualidade é ter um padrão de atendimento?   
+  - Qualidade é ter uma norma a ser seguida?  
+  - Qualidade é atender as necessidade do Cliente?   
+  - É ter um produto melhor do que o concorrente em termos de características?   
+  - É ter uma boa relação Custo x Benefício?   
+
+4. Poste sua resposta no Fórum - [Tarefa Preliminar 1](https://canvas.instructure.com/courses/2212314/discussion_topics/9484958)
+
+:::
+
+<iframe width="560" height="314" src="https://www.youtube.com/embed/8B9_kAGjrwg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:::center
+**Conteúdo da página**   
+ <a href="#estrutura-da-disciplina">Estrutura da disciplina</a>   
+ <a href="#conteúdo-semanal">Conteúdo semanal</a>       
+ <a href="#top">Início</a>   
+:::
+
+<HR>
+## Semana 3
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 4
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 5
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 6
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 7
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 8
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 9
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 10
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+<hr>
+## Semana 11
+
+#### **Documentação**
+
+
+#### **Checkpoint**
+
+
+#### **Tarefa preliminar**
+
+CEP
+
+<iframe width="1195" height="673" src="https://www.youtube.com/embed/hh3CeKYL6ZA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="1195" height="673" src="https://www.youtube.com/embed/jFJ0wQbsZto" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

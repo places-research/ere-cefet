@@ -1,0 +1,16 @@
+---
+title: "Tratamento de dados - R"
+author: "Contribuições - Renata Lúcia Magalhães de Oliveira e Lucélia Viviane Vaz Raad"
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    css: styles.css
+    toc: true
+    toc_depth: 3
+---
+<link rel="stylesheet" href="./academicons-1.9.0/css/academicons.min.css">
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+ <a href="#top">Back to top</a>

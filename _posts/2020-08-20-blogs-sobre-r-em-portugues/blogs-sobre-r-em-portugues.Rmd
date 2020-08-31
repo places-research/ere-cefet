@@ -1,0 +1,19 @@
+---
+title: "Blogs sobre R em portugues"
+description: |
+  A short description of the post.
+author:
+  - name: Renata Oliveira
+    url: {}
+date: 08-20-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[UC Business Analytics R Programming Guide](http://uc-r.github.io/)
+

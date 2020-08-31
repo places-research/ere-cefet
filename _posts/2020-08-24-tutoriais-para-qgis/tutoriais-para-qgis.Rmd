@@ -1,0 +1,20 @@
+---
+title: "Tutoriais para QGIS"
+description: |
+  Algumas referencias de tutoriais para QGIS em português e inglês.
+author:
+  - name: Renata Oliveira
+    url: {}
+date: 08-24-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[QGIS Tutorials and Tips by Ujaval Gandhi](http://www.qgistutorials.com/pt_BR/) 
+[Spatial Thoughts by Ujaval Gandhi](https://spatialthoughts.com/)
+[Automating GIS Workflows with QGIS (Full Course Material) by Ujaval Gandhi](https://courses.spatialthoughts.com/automating-gis-workflows.html)

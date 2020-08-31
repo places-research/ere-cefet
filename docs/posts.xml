@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>PLACES - PLanning for ACcESs</title>
+    <link>https://places-research.github.io/places</link>
+    <atom:link href="https://places-research.github.io/places/posts.xml" rel="self" type="application/rss+xml"/>
+    <description>PLACES - PLanning for ACcESs
+</description>
+    <image>
+      <title>PLACES - PLanning for ACcESs</title>
+      <url>https://places-research.github.io/places/img/favicon.png</url>
+      <link>https://places-research.github.io/places</link>
+    </image>
+    <generator>Distill</generator>
+    <lastBuildDate>seg, 24 ago 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Tutoriais para QGIS</title>
+      <dc:creator>Renata Oliveira</dc:creator>
+      <link>https://places-research.github.io/places/posts/2020-08-24-tutoriais-para-qgis</link>
+      <description>Algumas referencias de tutoriais para QGIS em português e inglês.</description>
+      <guid>https://places-research.github.io/places/posts/2020-08-24-tutoriais-para-qgis</guid>
+      <pubDate>seg, 24 ago 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Webscrapping</title>
+      <dc:creator>Renata Oliveira</dc:creator>
+      <link>https://places-research.github.io/places/posts/2020-08-24-webscrapping</link>
+      <description>Tutorias e dicas de scrapping na web.</description>
+      <guid>https://places-research.github.io/places/posts/2020-08-24-webscrapping</guid>
+      <pubDate>seg, 24 ago 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blogs sobre R em portugues</title>
+      <dc:creator>Renata Oliveira</dc:creator>
+      <link>https://places-research.github.io/places/posts/2020-08-20-blogs-sobre-r-em-portugues</link>
+      <description>A short description of the post.</description>
+      <guid>https://places-research.github.io/places/posts/2020-08-20-blogs-sobre-r-em-portugues</guid>
+      <pubDate>qui, 20 ago 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>R para analise espacial</title>
+      <dc:creator>Renata Oliveira</dc:creator>
+      <link>https://places-research.github.io/places/posts/2020-08-20-R-para-analise-espacial</link>
+      <description>Links interessantes para aprendizagem de R como ferramenta de tratamento da informacao espacial</description>
+      <guid>https://places-research.github.io/places/posts/2020-08-20-R-para-analise-espacial</guid>
+      <pubDate>qui, 20 ago 2020 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
